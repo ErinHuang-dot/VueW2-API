@@ -1,28 +1,32 @@
 ---
-title: Vue_W2_API 驗證串接
+title: Vue_W2_API 登入
 layout: ./app/layout.ejs
 engine: ejs
 current: index
 ---
 
-<div class="container">
-  <h1 class="h1">API驗證串接</h1>
-  <main class="form-login mx-auto">
-    <h2 class="h2">請先登入</h2>
-    <form action="" class="mb-5">
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" name="email" id="floatingEmail">
-        <label for="floatingEmail">Email address</label>
+<main id="login">
+  <div class="container">
+    <div class="wrap d-flex justify-content-center align-items-center">
+      <div class="form-login">
+        <h2 class="fs-3 text-center mb-4">請先登入</h2>
+        <div class="mb-5">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" name="email" v-model="user.username" id="floatingEmail" placeholder="Email address">
+            <label for="floatingEmail">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" name="password" v-model="user.password" id="floatingPass" placeholder="Password">
+            <label for="floatingPass">Password</label>
+          </div>
+          <button type="button" class="btn btn-primary w-100 fs-5 text-white mb-3" v-on:click="login" id="btnLogin">登入</button>
+          <!-- 練習用 -->
+          <!-- <button type="button" class="btn btn-success w-100 fs-5" id="btnCheckLogin">驗證登入</button> -->
+        </div>
+        <p class="text-muted text-center">© 2021~∞ - 六角學院</p>
+    
       </div>
-      <div class="form-floating mb-3">
-        <input type="password" class="form-control" name="password" id="floatingPass">
-        <label for="floatingPass">Password</label>
-      </div>
-      <button type="submit" class="btn btn-primary">登入</button>
-    </form>
-    <p class="text-muted">© 2021~∞ - 六角學院</p>
-  </main>
-
-  
-</div>
+    </div>  
+  </div>  
+</main>
 
