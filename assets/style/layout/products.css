@@ -1,0 +1,27 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ol, ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.img-product-big {
+  height: 300px;
+}
+
+.img-product-small {
+  height: 150px;
+}
+
+.preview + .preview {
+  margin-left: 1rem;
+}
+
+/*# sourceMappingURL=products.css.map */

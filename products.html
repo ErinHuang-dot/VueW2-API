@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue_W2_API 產品列表</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/style/all.css">
+  </head>
+
+  <body>
+    
+
+    
+<main id="product">
+    <div class="container"> 
+            <!-- 練習用按鈕  -->
+            <!-- <div class="my-3">
+                <button type="button" class="btn btn-success" id="btnCheckLogin">驗證登入</button>
+                <button class="btn btn-secondary me-2" id="getProducts">取得產品列表</button>
+                <button class="btn btn-secondary me-2" id="addProduct">新增產品</button>
+                <button class="btn btn-secondary" id="deleteProduct">刪除產品</button>
+            </div> -->
+        
+        <div class="row py-3">
+            <div class="col">
+                <h2 class="h2">產品列表</h2>
+                <table class="table table-hover mt-4">
+                    <thead>
+                        <tr>
+                        <th scope="col">產品名稱</th>
+                        <th scope="col">原價</th>
+                        <th scope="col">售價</th>
+                        <th scope="col">是否啟用</th>
+                        <th scope="col">查看細節</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in products" :key="item.id">
+                            <td>{{ item.title }}</th>
+                            <td>{{ item.origin_price }}</td>
+                            <td>{{ item.price }}</td>
+                            <td class="text-success">啟用</td>
+                            <td>
+                                <button type="button" 
+                                v-on:click="temp = item" class="btn btn-primary">查看細節</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>目前有 <span>{{ products.length }}</span> 項產品</p>
+            </div>
+            <div class="col">
+                <h2 class="h2">單一產品細節</h2>
+                <div class="product-wrap" v-if=" temp.id ">
+                    <div class="card mb-3">
+                        <div class="text-center">
+                            <img class="img-product-big" v-bind:src="temp.imageUrl" alt="產品圖片">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ temp.title }}<span class="badge bg-primary ms-2">{{ temp.category }}</span></h5>
+                            <p>商品描述：{{ temp.description }}</p>
+                            <p>商品內容：{{ temp.content }}</p>
+                            <p>{{ temp.price }} <del class="text-muted">{{ temp.origin_price }}</del> 個 / 元</p>
+                        </div>
+                    </div>
+                    <ul class="d-flex">
+                        <li class="preview" v-for="url in temp.imagesUrl">
+                            <img class="img-product-small" v-bind:src="url" alt="預覽圖">
+                        </li>
+                    </ul>
+                </div>                    
+                <p class="text-muted" v-else>請選擇一個商品查看</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+  
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+
+</html>
