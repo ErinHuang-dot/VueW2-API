@@ -19,7 +19,7 @@ const login = Vue.createApp({
         .then ((res) => {
 
           const { token, expired } = res.data;
-          document.cookie = `erinToken=${token}; expires=${new Date(expired)}GMT;`;
+          document.cookie = `userToken=${token}; expires=${new Date(expired)}GMT;`;
 
           window.location.href = 'products.html';
           window.alert('登入成功，即將進入商品頁面'); 
@@ -65,7 +65,7 @@ const product = Vue.createApp({
   },
 
   mounted() {
-    const token = document.cookie.replace(/(?:(?:^|.*;\s*)erinToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)userToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     axios.defaults.headers.common['Authorization'] = token;
 
     this.checkLogin();
